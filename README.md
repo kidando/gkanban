@@ -6,6 +6,7 @@ Use kanban project boards in the Godot Editor. G-Kanban provides similar functio
 
 <img src="readme_files/board.png" style="width:100%; margin:1rem 2rem;"/>
 
+G-Kanban Release video on Youtube
 [![G-Kanban v 0.1.0 Released](https://img.youtube.com/vi/wphLTOBDn1s/default.jpg)](https://youtu.be/wphLTOBDn1s)
 
 ## Current Release
