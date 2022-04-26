@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://addons/gkanban/components/List.gd" type="Script" id=1]
+[ext_resource path="res://addons/gkanban/text_resources/font_bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/gkanban/components/CardButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/gkanban/text_resources/font_regular.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/gkanban/text_resources/btn_outline_primary_light.tres" type="StyleBox" id=5]
+[ext_resource path="res://addons/gkanban/text_resources/btn_outline_primary_light_hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-left-s-line-white.png" type="Texture" id=7]
+[ext_resource path="res://addons/gkanban/assets/icons/png/menu-line-white.png" type="Texture" id=8]
+[ext_resource path="res://addons/gkanban/assets/icons/png/menu-line.png" type="Texture" id=9]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-right-s-line-white.png" type="Texture" id=10]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-right-s-line.png" type="Texture" id=11]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-left-s-line.png" type="Texture" id=12]
+[ext_resource path="res://addons/gkanban/text_resources/card_title_input_focus.tres" type="StyleBox" id=13]
+[ext_resource path="res://addons/gkanban/text_resources/card_edit_button_normal.tres" type="StyleBox" id=14]
+[ext_resource path="res://addons/gkanban/text_resources/font_regular_smaller_line_heigth.tres" type="DynamicFont" id=15]
+
+[sub_resource type="StyleBoxFlat" id=5]
+resource_local_to_scene = true
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 8.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+
+[node name="List" type="PanelContainer" groups=["lists"]]
+margin_right = 270.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 320, 0 )
+mouse_default_cursor_shape = 2
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 1 )
+cards_container_path = NodePath("VBoxContainer/MarginContainer/CardsContainer")
+list_name_label_path = NodePath("VBoxContainer/HBoxContainer/MarginContainer/ListName")
+list_name_edit_path = NodePath("VBoxContainer/HBoxContainer/MarginContainer/ListNameEdit")
+list_buttons_container_path = NodePath("VBoxContainer/HBoxContainer/ListButtonsContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 304.0
+margin_bottom = 98.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 288.0
+margin_bottom = 23.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 216.0
+margin_bottom = 23.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="ListName" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_right = 216.0
+margin_bottom = 23.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "List Name"
+
+[node name="ListNameEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+visible = false
+margin_right = 216.0
+margin_bottom = 31.0
+custom_colors/selection_color = Color( 0.313726, 0.388235, 0.580392, 1 )
+custom_colors/cursor_color = Color( 0.129412, 0.160784, 0.247059, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 15 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 14 )
+text = "asdfasdfasdf"
+caret_blink = true
+
+[node name="ListButtonsContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 220.0
+margin_right = 288.0
+margin_bottom = 23.0
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/HBoxContainer/ListButtonsContainer"]
+margin_right = 16.0
+margin_bottom = 23.0
+mouse_filter = 2
+
+[node name="MoveLeftButton" parent="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer3" instance=ExtResource( 3 )]
+margin_top = 3.0
+margin_bottom = 19.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer/HBoxContainer/ListButtonsContainer"]
+margin_left = 26.0
+margin_right = 42.0
+margin_bottom = 23.0
+mouse_filter = 2
+
+[node name="MoveRightButton" parent="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer4" instance=ExtResource( 3 )]
+margin_top = 3.0
+margin_bottom = 19.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer/HBoxContainer/ListButtonsContainer"]
+margin_left = 52.0
+margin_right = 68.0
+margin_bottom = 23.0
+mouse_filter = 2
+
+[node name="MenuButton" parent="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer5" instance=ExtResource( 3 )]
+margin_top = 3.0
+margin_bottom = 19.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 288.0
+margin_bottom = 47.0
+custom_constants/margin_top = 8
+custom_constants/margin_bottom = 12
+
+[node name="CardsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 8.0
+custom_constants/separation = 20
+
+[node name="AddCardButton" type="Button" parent="VBoxContainer"]
+margin_top = 51.0
+margin_right = 288.0
+margin_bottom = 90.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.419608, 0.521569, 0.580392, 1 )
+custom_colors/font_color_hover = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+enabled_focus_mode = 0
+text = "ADD CARD"
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MarginContainer/ListName" to="." method="_on_ListName_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/MarginContainer/ListName" to="." method="_on_ListName_mouse_exited"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/MarginContainer/ListNameEdit" to="." method="_on_ListNameEdit_text_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer3/MoveLeftButton" to="." method="_on_MoveLeftButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer4/MoveRightButton" to="." method="_on_MoveRightButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ListButtonsContainer/CenterContainer5/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/AddCardButton" to="." method="_on_AddCardButton_pressed"]

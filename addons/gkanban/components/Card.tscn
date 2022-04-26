@@ -1,0 +1,286 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://addons/gkanban/text_resources/font_regular_smaller_line_heigth.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/gkanban/components/Card.gd" type="Script" id=2]
+[ext_resource path="res://addons/gkanban/components/CardButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/gkanban/text_resources/card_title_input_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://addons/gkanban/text_resources/font_bold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/gkanban/text_resources/font_code_mono.tres" type="DynamicFont" id=6]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-up-s-line-white.png" type="Texture" id=7]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-up-s-line.png" type="Texture" id=8]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-right-s-line-white.png" type="Texture" id=9]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-down-s-line-white.png" type="Texture" id=10]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-left-s-line.png" type="Texture" id=11]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-left-s-line-white.png" type="Texture" id=12]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-down-s-line.png" type="Texture" id=13]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-right-s-line.png" type="Texture" id=14]
+[ext_resource path="res://addons/gkanban/assets/icons/png/menu-line-white.png" type="Texture" id=15]
+[ext_resource path="res://addons/gkanban/assets/icons/png/menu-line.png" type="Texture" id=16]
+[ext_resource path="res://addons/gkanban/text_resources/card_title_input_focus.tres" type="StyleBox" id=17]
+[ext_resource path="res://addons/gkanban/assets/icons/png/check-line.png" type="Texture" id=18]
+[ext_resource path="res://addons/gkanban/assets/icons/png/check-line-white.png" type="Texture" id=19]
+[ext_resource path="res://addons/gkanban/assets/icons/png/close-line.png" type="Texture" id=20]
+[ext_resource path="res://addons/gkanban/assets/icons/png/close-line-white.png" type="Texture" id=21]
+[ext_resource path="res://addons/gkanban/assets/fonts/nunito/Nunito-BoldItalic.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://addons/gkanban/assets/fonts/nunito/Nunito-Italic.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://addons/gkanban/text_resources/button_group_card_color.tres" type="ButtonGroup" id=24]
+
+[sub_resource type="StyleBoxFlat" id=7]
+resource_local_to_scene = true
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.788235, 0.835294, 0.862745, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+resource_local_to_scene = true
+content_margin_left = 8.0
+content_margin_right = 16.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color( 0.505882, 0.603922, 0.662745, 1 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 23 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="Card" type="PanelContainer" groups=["cards"]]
+margin_right = 268.0
+margin_bottom = 61.0
+mouse_default_cursor_shape = 2
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 2 )
+title_path = NodePath("VBoxContainer/CardTitleAndEditContainer/CardTitleContainer/CardTitle")
+title_edit_path = NodePath("VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/CardTitleEdit")
+card_buttons_container_path = NodePath("VBoxContainer/ButtonsBG/CardButtonsContainer")
+card_title_and_edit_container_path = NodePath("VBoxContainer/CardTitleAndEditContainer")
+card_title_container_path = NodePath("VBoxContainer/CardTitleAndEditContainer/CardTitleContainer")
+card_title_edit_container_path = NodePath("VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer")
+buttons_bg_path = NodePath("VBoxContainer/ButtonsBG")
+radio_default_btn_path = NodePath("VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/DefaultColorButton")
+radio_green_btn_path = NodePath("VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/GreenColorButton")
+radio_red_btn_path = NodePath("VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/RedColorButton")
+radio_yellow_btn_path = NodePath("VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/YellowColorButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 268.0
+margin_bottom = 124.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="ButtonsBG" type="PanelContainer" parent="VBoxContainer"]
+margin_right = 268.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+custom_styles/panel = SubResource( 8 )
+
+[node name="CardButtonsContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsBG"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 252.0
+margin_bottom = 32.0
+mouse_filter = 2
+custom_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsBG/CardButtonsContainer"]
+margin_right = 96.0
+margin_bottom = 24.0
+custom_constants/separation = 0
+
+[node name="DefaultColorButton" type="CheckBox" parent="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+group = ExtResource( 24 )
+
+[node name="GreenColorButton" type="CheckBox" parent="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 48.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+group = ExtResource( 24 )
+
+[node name="RedColorButton" type="CheckBox" parent="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 72.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+group = ExtResource( 24 )
+
+[node name="YellowColorButton" type="CheckBox" parent="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer"]
+margin_left = 72.0
+margin_right = 96.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+group = ExtResource( 24 )
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ButtonsBG/CardButtonsContainer"]
+margin_left = 106.0
+margin_right = 114.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="MoveCardUpButton" parent="VBoxContainer/ButtonsBG/CardButtonsContainer" instance=ExtResource( 3 )]
+margin_left = 124.0
+margin_right = 140.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+
+[node name="MoveCardDownButton" parent="VBoxContainer/ButtonsBG/CardButtonsContainer" instance=ExtResource( 3 )]
+margin_left = 150.0
+margin_right = 166.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+
+[node name="MoveCardLeftButton" parent="VBoxContainer/ButtonsBG/CardButtonsContainer" instance=ExtResource( 3 )]
+margin_left = 176.0
+margin_right = 192.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+
+[node name="MoveCardRightButton" parent="VBoxContainer/ButtonsBG/CardButtonsContainer" instance=ExtResource( 3 )]
+margin_left = 202.0
+margin_right = 218.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+
+[node name="CardMenuButton" parent="VBoxContainer/ButtonsBG/CardButtonsContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_right = 244.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
+
+[node name="CardTitleAndEditContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 268.0
+margin_bottom = 124.0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+custom_constants/margin_right = 0
+custom_constants/margin_top = 4
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 16
+
+[node name="CardTitleContainer" type="MarginContainer" parent="VBoxContainer/CardTitleAndEditContainer"]
+margin_top = 4.0
+margin_right = 268.0
+margin_bottom = 64.0
+mouse_filter = 2
+custom_constants/margin_right = 16
+custom_constants/margin_left = 16
+
+[node name="CardTitle" type="RichTextLabel" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleContainer"]
+margin_left = 16.0
+margin_right = 252.0
+margin_bottom = 60.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_colors/selection_color = Color( 0.241699, 0.349023, 0.625, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_fonts/mono_font = ExtResource( 6 )
+custom_fonts/bold_italics_font = SubResource( 9 )
+custom_fonts/italics_font = SubResource( 10 )
+custom_fonts/bold_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 1 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "This is my card and I am so so so in love with this you guys. OMG"
+text = "This is my card and I am so so so in love with this you guys. OMG"
+fit_content_height = true
+
+[node name="CardTitleEditContainer" type="MarginContainer" parent="VBoxContainer/CardTitleAndEditContainer"]
+visible = false
+margin_top = 4.0
+margin_right = 268.0
+margin_bottom = 154.0
+mouse_filter = 2
+size_flags_vertical = 3
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer"]
+margin_left = 8.0
+margin_right = 260.0
+margin_bottom = 150.0
+
+[node name="CardTitleEdit" type="TextEdit" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_colors/selection_color = Color( 0.313726, 0.388235, 0.580392, 1 )
+custom_colors/caret_color = Color( 0.129412, 0.160784, 0.247059, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 4 )
+text = "This is my card and I am so so so in love with this you guys. OMG"
+override_selected_font_color = true
+wrap_enabled = true
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 252.0
+margin_bottom = 150.0
+
+[node name="CancelEditButton" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 232.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="SaveChangesButton" parent="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 236.0
+margin_right = 252.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/DefaultColorButton" to="." method="_on_DefaultColorButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/GreenColorButton" to="." method="_on_GreenColorButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/RedColorButton" to="." method="_on_RedColorButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/HBoxContainer/YellowColorButton" to="." method="_on_YellowColorButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/MoveCardUpButton" to="." method="_on_MoveCardUpButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/MoveCardDownButton" to="." method="_on_MoveCardDownButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/MoveCardLeftButton" to="." method="_on_MoveCardLeftButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/MoveCardRightButton" to="." method="_on_MoveCardRightButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsBG/CardButtonsContainer/CardMenuButton" to="." method="_on_CardMenuButton_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/CardTitleAndEditContainer" to="." method="_on_CardTitleContainer_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/CardTitleAndEditContainer" to="." method="_on_CardTitleContainer_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/HBoxContainer/CancelEditButton" to="." method="_on_CancelEditButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CardTitleAndEditContainer/CardTitleEditContainer/VBoxContainer/HBoxContainer/SaveChangesButton" to="." method="_on_SaveChangesButton_pressed"]

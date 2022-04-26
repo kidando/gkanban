@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/gkanban/pages/StartPage.gd" type="Script" id=1]
+[ext_resource path="res://addons/gkanban/text_resources/font_title.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/gkanban/text_resources/font_regular.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/gkanban/text_resources/font_header1.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/gkanban/text_resources/btn_outline_primary.tres" type="StyleBox" id=5]
+[ext_resource path="res://addons/gkanban/text_resources/btn_project_board_hover.tres" type="StyleBox" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="StartPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+project_board_container_path = NodePath("BG/VBoxContainer/VBoxContainer/CenterContainer/VBoxContainer/ProjectBoardListContainer")
+
+[node name="BG" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 73.0
+mouse_filter = 2
+custom_constants/margin_top = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/VBoxContainer/MarginContainer"]
+margin_top = 8.0
+margin_right = 1024.0
+margin_bottom = 73.0
+mouse_filter = 2
+custom_constants/separation = 0
+
+[node name="AppTitleLabel" type="Label" parent="BG/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "G-Kanban"
+align = 1
+
+[node name="VersionLabel" type="Label" parent="BG/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 1024.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Version 0.1.0"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/VBoxContainer"]
+margin_top = 77.0
+margin_right = 1024.0
+margin_bottom = 560.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="BG/VBoxContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 34.0
+custom_constants/margin_bottom = 34
+
+[node name="ProjectBoardsLabel" type="Label" parent="BG/VBoxContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 69.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "PROJECT BOARDS"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer/VBoxContainer"]
+margin_top = 73.0
+margin_right = 1024.0
+margin_bottom = 88.0
+mouse_filter = 2
+custom_constants/margin_bottom = 15
+
+[node name="CenterContainer" type="CenterContainer" parent="BG/VBoxContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 1024.0
+margin_bottom = 147.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/VBoxContainer/VBoxContainer/CenterContainer"]
+margin_left = 362.0
+margin_right = 662.0
+margin_bottom = 55.0
+mouse_filter = 2
+size_flags_horizontal = 0
+custom_constants/separation = 16
+
+[node name="ProjectBoardListContainer" type="VBoxContainer" parent="BG/VBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 300.0
+mouse_filter = 2
+
+[node name="AddProjectBoardBtn" type="Button" parent="BG/VBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 300.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 300, 0 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+custom_colors/font_color_hover = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+enabled_focus_mode = 0
+text = "Add A Project Board"
+
+[node name="MarginContainer2" type="MarginContainer" parent="BG/VBoxContainer"]
+margin_top = 564.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_bottom = 12
+
+[node name="AuthorFooterLabel" type="RichTextLabel" parent="BG/VBoxContainer/MarginContainer2"]
+margin_right = 1024.0
+margin_bottom = 24.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]by Leon Oscar Kidando | Github[/center]"
+text = "by Leon Oscar Kidando | Github"
+fit_content_height = true
+
+[node name="ModalContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[connection signal="pressed" from="BG/VBoxContainer/VBoxContainer/CenterContainer/VBoxContainer/AddProjectBoardBtn" to="." method="_on_AddProjectBoardBtn_pressed"]

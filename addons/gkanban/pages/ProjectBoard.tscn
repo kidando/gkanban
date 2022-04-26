@@ -1,0 +1,193 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/gkanban/pages/ProjectBoard.gd" type="Script" id=1]
+[ext_resource path="res://addons/gkanban/text_resources/font_header1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/gkanban/text_resources/btn_outline_primary_sm.tres" type="StyleBox" id=3]
+[ext_resource path="res://addons/gkanban/text_resources/font_regular.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/gkanban/text_resources/btn_project_board_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://addons/gkanban/assets/icons/png/delete-bin-6-line-white.png" type="Texture" id=6]
+[ext_resource path="res://addons/gkanban/assets/icons/png/arrow-left-s-line-white.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.643137, 0.721569, 0.768627, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.156863, 0.192157, 0.278431, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.158173, 0.191541, 0.277344, 1 )
+
+[node name="ProjectBoard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+project_board_name_label_path = NodePath("BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer/ProjectBoardName")
+list_container_path = NodePath("BG/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/ListContainer")
+menu_container_path = NodePath("MenusContainer")
+project_board_name_and_edit_container_path = NodePath("BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer")
+project_board_name_path = NodePath("BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer/ProjectBoardName")
+project_board_name_edit_path = NodePath("BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer/ProjectBoardNameEdit")
+
+[node name="BG" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/VBoxContainer"]
+margin_right = 992.0
+margin_bottom = 31.0
+custom_constants/separation = 16
+
+[node name="BackButton" type="Button" parent="BG/VBoxContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 31.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 7 )
+
+[node name="ProjectBoardNameAndEditContainer" type="MarginContainer" parent="BG/VBoxContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 188.0
+margin_bottom = 31.0
+mouse_default_cursor_shape = 2
+
+[node name="ProjectBoardName" type="Label" parent="BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer"]
+margin_right = 140.0
+margin_bottom = 31.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Project Board"
+
+[node name="ProjectBoardNameEdit" type="LineEdit" parent="BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer"]
+visible = false
+margin_right = 154.0
+margin_bottom = 39.0
+custom_colors/selection_color = Color( 0.271164, 0.382133, 0.66748, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "asdfasdfasdf"
+expand_to_text_length = true
+caret_blink = true
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 944.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="BG/VBoxContainer/HBoxContainer"]
+margin_left = 960.0
+margin_right = 992.0
+margin_bottom = 31.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer"]
+margin_top = 35.0
+margin_right = 992.0
+margin_bottom = 55.0
+custom_constants/margin_top = 8
+custom_constants/margin_bottom = 8
+
+[node name="HSeparator" type="HSeparator" parent="BG/VBoxContainer/MarginContainer"]
+margin_top = 8.0
+margin_right = 992.0
+margin_bottom = 12.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BG/VBoxContainer"]
+margin_top = 59.0
+margin_right = 992.0
+margin_bottom = 568.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/VBoxContainer/ScrollContainer"]
+margin_right = 336.0
+margin_bottom = 39.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 39.0
+custom_constants/margin_right = 16
+
+[node name="ListContainer" type="HBoxContainer" parent="BG/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer"]
+margin_bottom = 39.0
+custom_constants/separation = 16
+
+[node name="AddListButton" type="Button" parent="BG/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 16.0
+margin_right = 336.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 320, 0 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.643137, 0.721569, 0.768627, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "ADD LIST"
+
+[node name="MenusContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[connection signal="pressed" from="BG/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="text_entered" from="BG/VBoxContainer/HBoxContainer/ProjectBoardNameAndEditContainer/ProjectBoardNameEdit" to="." method="_on_ProjectBoardNameEdit_text_entered"]
+[connection signal="pressed" from="BG/VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/ScrollContainer/HBoxContainer/AddListButton" to="." method="_on_AddListButton_pressed"]

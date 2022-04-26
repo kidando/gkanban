@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/gkanban/text_resources/form_input_focus.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/gkanban/text_resources/font_regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/gkanban/text_resources/form_input_normal.tres" type="StyleBox" id=3]
+
+[node name="FormInput" type="LineEdit"]
+margin_top = 27.0
+margin_right = 368.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.219608, 0.247059, 0.317647, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 3 )
