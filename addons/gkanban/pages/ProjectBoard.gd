@@ -272,10 +272,13 @@ func _on_ListMenu_move_list_pressed(_list, _direction):
 
 
 func _on_ListMenu_delete_list_pressed(_list):
-	print(_list)
+	var _list_index = get_list_index(_list)
+	project_board.lists.remove(_list_index)
+
 	for list in list_container.get_children():
 		if list == _list:
 			list.queue_free()
+	emit_signal("updated",self)
 	delete_menus()
 
 func get_list_index(_list):
