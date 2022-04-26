@@ -6,8 +6,7 @@ Use kanban project boards in the Godot Editor. G-Kanban provides similar functio
 
 <img src="readme_files/board.png" style="width:100%; margin:1rem 2rem;"/>
 
-G-Kanban Release video on Youtube
-[![G-Kanban v 0.1.0 Released](https://img.youtube.com/vi/wphLTOBDn1s/default.jpg)](https://youtu.be/wphLTOBDn1s)
+### [Watch G-Kanban Release video on Youtube](https://youtu.be/wphLTOBDn1s)
 
 ## Current Release
 This is currently an **Alpha** release of the project. Now that I have gotten everything to work on the front-end, I plan to re-write the backend for readability, better maintainability and scalability. A lot of "bilities". Some front-end things could change. I will prioritize keeping things backwards compatible because I don't see why the saved data "structure" should change.
