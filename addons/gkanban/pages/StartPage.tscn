@@ -147,7 +147,7 @@ custom_fonts/normal_font = ExtResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[center]by Leon Oscar Kidando | Github[/center]"
+bbcode_text = "[center]by Leon Oscar Kidando | [url=https://github.com/kidando/gkanban]Github[/url][/center]"
 text = "by Leon Oscar Kidando | Github"
 fit_content_height = true
 
@@ -157,3 +157,4 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [connection signal="pressed" from="BG/VBoxContainer/VBoxContainer/CenterContainer/VBoxContainer/AddProjectBoardBtn" to="." method="_on_AddProjectBoardBtn_pressed"]
+[connection signal="meta_clicked" from="BG/VBoxContainer/MarginContainer2/AuthorFooterLabel" to="." method="_on_AuthorFooterLabel_meta_clicked"]

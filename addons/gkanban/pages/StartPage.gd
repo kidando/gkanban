@@ -59,3 +59,7 @@ func _on_AddProjectBoardModal_project_board_added(_project_board_data)->void:
 func _on_Project_board_button_project_board_selected(_project_board):
 	emit_signal("project_board_selected",_project_board)
 	queue_free()
+
+
+func _on_AuthorFooterLabel_meta_clicked(meta):
+	OS.shell_open(meta)
