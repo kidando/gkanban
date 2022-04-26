@@ -1,7 +1,10 @@
 # G-Kanban
 
 Use kanban project boards in the Godot Editor. G-Kanban provides similar functionality to apps like Trello. Create lists and manage cards within those lists.
+
 <img src="readme_files/main.png" style="width:100%; margin:1rem 2rem;"/>
+
+<img src="readme_files/board.png" style="width:100%; margin:1rem 2rem;"/>
 
 ## Current Release
 This is currently an Alpha release of the project. Now that I have gotten everything to work on the front-end, I plan to re-write the backend for readability, better maintainability and scalability. A lot of "bilities". I will prioritize keeping things backwards compatible because I don't see why the saved data "structure" should change.
