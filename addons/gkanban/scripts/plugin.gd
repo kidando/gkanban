@@ -18,8 +18,8 @@ func has_main_screen()->bool:
 func get_plugin_name()-> String:
 	return "G-Kanban"
 	
-func get_plugin_icon()->Texture:
-	return get_editor_interface().get_base_control().get_icon("Spatial","EditorIcons")
+func get_plugin_icon():
+	return preload("res://addons/gkanban/assets/icons/svg/gkanban_icon.svg")
 	
 func make_visible(visible:bool)->void:
 	if plugin_interface:

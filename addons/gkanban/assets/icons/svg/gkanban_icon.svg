@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="gkanban_icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:zoom="48.918518"
+     inkscape:cx="9.3931709"
+     inkscape:cy="7.96222"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect31"
+       style="fill:#ffffff;stroke-width:0.23151"
+       d="m 0.80899456,0.26458333 c -0.30151219,0 -0.54441123,0.24289904 -0.54441123,0.54441123 V 3.4243388 c 0,0.3015121 0.24289904,0.5444112 0.54441123,0.5444112 H 3.4243388 C 3.7258509,3.96875 3.96875,3.7258509 3.96875,3.4243388 V 0.80899456 c 0,-0.30151219 -0.2428991,-0.54441123 -0.5444112,-0.54441123 z M 0.61456199,0.96951448 H 1.4248485 V 3.2846186 H 0.61456199 Z m 1.09696141,0 H 2.5218099 V 2.3585769 H 1.7115234 Z m 1.0965093,0 H 3.6183192 V 2.8215978 H 2.8080327 Z" />
+  </g>
+</svg>
