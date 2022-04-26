@@ -36,6 +36,6 @@ If you have used this plugin, you can tell that there are areas that could use a
 
 ## Consider Donating
 
-If you like the tool and would like to get me a cup of coffee, I would be grateful. You can visit my coffee page.
+If you like the tool and would like to get me a cup of coffee, I would be grateful. You can [visit my coffee page](https://www.buymeacoffee.com/kidando).
 
 You can chekout some of my games on [Itch.io](https://kidando.itch.io/) and [Gamejolt](https://gamejolt.com/@Kidando). 
