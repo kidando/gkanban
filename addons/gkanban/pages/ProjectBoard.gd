@@ -339,7 +339,7 @@ func _on_List_move_card_pressed(_list, _card, _direction):
 			var current_index = get_list_index(_list)
 
 			list_container.get_child(current_index-1).add_card(_card.card)
-
+			_list.remove_card(_card.card)
 			_card.queue_free()
 		"right":
 			if list_container.get_child(list_container.get_child_count()-1) == _list:
@@ -348,6 +348,7 @@ func _on_List_move_card_pressed(_list, _card, _direction):
 			var current_index = get_list_index(_list)
 
 			list_container.get_child(current_index+1).add_card(_card.card)
+			_list.remove_card(_card.card)
 			_card.queue_free()
 
 
